@@ -94,10 +94,11 @@
             0%, 100% { transform: translate(-50%, -50%) rotate(5deg) scale(1); }
             50% { transform: translate(-50%, -50%) rotate(-5deg) scale(1.05); }
         }
-        .video-container iframe {
+        .video-container video {
             width: 800px;
             height: 450px;
             border: 5px solid yellow;
+            background: black;
         }
         .sluit-knop {
             position: fixed;
@@ -149,6 +150,14 @@
             0%, 100% { background: lime; }
             50% { background: yellow; }
         }
+        .bestands-info {
+            background: orange;
+            color: blue;
+            padding: 10px;
+            margin: 5px;
+            border: 3px dashed red;
+            font-family: 'Courier New', monospace;
+        }
     </style>
 </head>
 <body>
@@ -190,27 +199,33 @@
     <br><br>
 
     <div class="video-info">
-        <span class="blink">🎯 DE JUISTE VIDEO DIESKEER! 🎯</span><br>
-        YouTube: https://www.youtube.com/watch?v=hDcrSIXzQuY
+        <span class="blink">🎯 LOKALE VIDEO DIESKEER! 🎯</span><br>
+        Bestandsnaam: video.mp4 (moet inzelfde map staan)
+    </div>
+
+    <div class="bestands-info">
+        📁 video.mp4<br>
+        📍 Locatie:zelfde map als dit HTML bestand<br>
+        🎥 Formaat: MP4 video bestand
     </div>
 
     <div class="domme-tekst">
-        <span class="blink">🧹 ATTENTIE! DEZE KEER WEL DE GOEIE! 🧽</span><br>
-        Hieronder vind je DE KNOP voor DE ECHTE VIDEO van TheCleaningGirl!
+        <span class="blink">🧹 ATTENTIE! LOKALE VIDEO! 🧽</span><br>
+        Hieronder vind je DE KNOP voor het VIDEO.MP4 bestand!
     </div>
     
-    <!-- Domme knop voor DE JUISTE TheCleaningGirl video -->
+    <!-- Domme knop voor video.mp4 -->
     <button class="domme-knop" onclick="openTheVideo()">
-        <span class="blink">🧹 KLIK HIER VOOR DE ECHTE THECLEANINGGIRL VIDEO! 🧽</span><br>
-        (Video ID: hDcrSIXzQuY - DEZE KEER WEL GOED!)
+        <span class="blink">🧹 KLIK HIER VOOR VIDEO.MP4! 🧽</span><br>
+        (Lokaal bestand - video.mp4)
     </button>
     
-    <p><small>Deze knop opent die ene specifieke video die je wilde - nu wel de juiste!</small></p>
+    <p><small>Deze knop opent het video.mp4 bestand dat in dezelfde map moet staan</small></p>
     
     <br>
     
-    <div style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22500%22 height=%22500%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%2300ff00%22/><text x=%2250%25%22 y=%2250%25%22 font-size=%2230%22 text-anchor=%22middle%22 fill=%22%23000000%22>hDcrSIXzQuY</text></svg>'); height: 500px;">
-        <h2>Speciaal voor TheCleaningGirl fans - NU MET JUISTE LINK!</h2>
+    <div style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22500%22 height=%22500%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%2300ff00%22/><text x=%2250%25%22 y=%2250%25%22 font-size=%2230%22 text-anchor=%22middle%22 fill=%22%23000000%22>video.mp4</text></svg>'); height: 500px;">
+        <h2>Speciaal voor lokale video bestanden!</h2>
     </div>
     
     <br>
@@ -226,8 +241,8 @@
     <div style="border: 20px dotted orange; padding: 30px;">
         <h2>Gestippelde rand? Waarom niet!</h2>
         <p>Ik heb echt geen idee wat ik hier neer moet zetten dus ik typ maar wat.</p>
-        <p>Binnenkort meer domme content van TheCleaningGirl!</p>
-        <p class="blink">DEZE KEER WEL DE JUISTE VIDEO ID: hDcrSIXzQuY</p>
+        <p>Zorg dat video.mp4 in dezelfde map staat als dit HTML bestand!</p>
+        <p class="blink">📁 video.mp4 📁</p>
     </div>
     
     <br>
@@ -246,33 +261,42 @@
         <li>Droog water</li>
         <li>Een luide stilte</li>
         <li>Een snelle slak</li>
-        <li>Een schone TheCleaningGirl video (nu wel de juiste!)</li>
-        <li>Video ID: hDcrSIXzQuY</li>
+        <li>Een video.mp4 bestand</li>
+        <li>Geen YouTube meer!</li>
     </ul>
     
     <br>
     
     <div style="transform: skewX(20deg); background-color: purple; padding: 20px;">
         <h2>Scheve tekst omdat het kan!</h2>
-        <p>Binnenkort: Meer TheCleaningGirl content!</p>
-        <p class="blink">🎥 https://www.youtube.com/watch?v=hDcrSIXzQuY 🎥</p>
+        <p>Lokale video's zijn veel dommer dan YouTube!</p>
+        <p class="blink">🎥 video.mp4 🎥</p>
     </div>
     
-    <!-- Video popup voor DE JUISTE VIDEO -->
+    <!-- Video popup voor video.mp4 -->
     <div id="videoPopup" class="video-popup">
-        <button class="sluit-knop" onclick="closeTheVideo()">🧹 SLUIT DEZE GEWELDIGE VIDEO! 🧽</button>
+        <button class="sluit-knop" onclick="closeTheVideo()">🧹 SLUIT DEZE VIDEO! 🧽</button>
         <div class="video-container">
-            <iframe 
-                src="https://www.youtube.com/embed/hDcrSIXzQuY" 
-                title="TheCleaningGirl Video - DE JUISTE!"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
-            </iframe>
+            <video id="localVideo" controls autoplay>
+                <source src="video.mp4" type="video/mp4">
+                <source src="video.ogg" type="video/ogg">
+                <source src="video.webm" type="video/webm">
+                Je browser ondersteunt geen video element. Wat dom!
+            </video>
         </div>
         <div style="position: absolute; bottom: 50px; left: 50%; transform: translateX(-50%); color: white; font-size: 24px;" class="blink">
-            🧹 GENIET VAN THECLEANINGGIRL! 🧽<br>
-            <small>Eindelijk de juiste video! 🎉</small>
+            🧹 LOKALE VIDEO.MP4! 🧽<br>
+            <small>Als je dit ziet, staat video.mp4 in de map! 🎉</small>
         </div>
+    </div>
+
+    <!-- Fallback voor als video niet werkt -->
+    <div id="videoError" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: red; color: white; padding: 20px; border: 5px dashed yellow; z-index: 1001;">
+        <h2>🧹 VIDEO.MP4 NIET GEVONDEN! 🧽</h2>
+        <p>Zorg dat video.mp4 in dezelfde map staat als dit HTML bestand!</p>
+        <button onclick="document.getElementById('videoError').style.display = 'none'" style="background: lime; color: black; padding: 10px; border: 2px solid white; cursor: pointer;">
+            OK, BEGREPEN!
+        </button>
     </div>
     
     <br><br>
@@ -280,27 +304,46 @@
     <footer>
         <p class="blink">Gemaakt met 0% hersencellen en 100% domheid</p>
         <p>© 2023 - De Domste Website Aller Tijden</p>
-        <p>Speciaal voor TheCleaningGirl fans - NU MET CORRECTE VIDEO!</p>
-        <p>Video: https://www.youtube.com/watch?v=hDcrSIXzQuY</p>
+        <p>Speciaal voor lokale video bestanden - video.mp4</p>
+        <p>Bestand: video.mp4 (inzelfde map plaatsen)</p>
         <p>Bezoekers teller: <counter>999999</counter> (nep natuurlijk)</p>
     </footer>
 
     <script>
-        // DE JUISTE VIDEO - https://www.youtube.com/watch?v=hDcrSIXzQuY
+        // LOKALE VIDEO - video.mp4
         function openTheVideo() {
             const videoPopup = document.getElementById('videoPopup');
-            videoPopup.style.display = 'block';
-            createConfetti();
-            playDomGeluid();
+            const video = document.getElementById('localVideo');
+            const errorDiv = document.getElementById('videoError');
             
-            // Extra domme confirmatie
-            setTimeout(() => {
-                alert("🎉 YES! Eindelijk de juiste video! 🎉\nGeniet van TheCleaningGirl!");
-            }, 500);
+            // Probeer video te laden
+            video.load();
+            
+            // Check of video kan afspelen
+            video.oncanplay = function() {
+                videoPopup.style.display = 'block';
+                createConfetti();
+                playDomGeluid();
+            };
+            
+            video.onerror = function() {
+                errorDiv.style.display = 'block';
+                playErrorGeluid();
+            };
+            
+            // Timeout voor het geval de video niet laadt
+            setTimeout(function() {
+                if (video.readyState < 2) { // HAVE_CURRENT_DATA
+                    errorDiv.style.display = 'block';
+                    playErrorGeluid();
+                }
+            }, 2000);
         }
         
         function closeTheVideo() {
             const videoPopup = document.getElementById('videoPopup');
+            const video = document.getElementById('localVideo');
+            video.pause();
             videoPopup.style.display = 'none';
         }
 
@@ -317,7 +360,7 @@
             const emojis = ['🧹', '🧽', '🚿', '🪣', '🧼', '💦', '✨', '🌟'];
             const knop = document.querySelector('.domme-knop');
             const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
-            knop.innerHTML = `<span class="blink">${randomEmoji} KLIK HIER VOOR DE ECHTE THECLEANINGGIRL VIDEO! ${randomEmoji}</span><br>(Video ID: hDcrSIXzQuY - DEZE KEER WEL GOED!)`;
+            knop.innerHTML = `<span class="blink">${randomEmoji} KLIK HIER VOOR VIDEO.MP4! ${randomEmoji}</span><br>(Lokaal bestand - video.mp4)`;
         }, 3000);
 
         // Confetti effect
@@ -371,23 +414,29 @@
             audio.play().catch(e => console.log("Geluid kon niet afspelen:", e));
         }
 
-        // Extra domme functie - verander de titel periodiek
-        let titleCount = 0;
-        const dommeTitels = [
-            "Domste HTML - JUISTE VIDEO!",
-            "TheCleaningGirl hDcrSIXzQuY",
-            "Eindelijk de goede link!",
-            "Klik op die knop!",
-            "Domheid level: EXPERT"
-        ];
-        
-        setInterval(() => {
-            document.title = dommeTitels[titleCount % dommeTitels.length];
-            titleCount++;
-        }, 2000);
+        // Error geluidje
+        function playErrorGeluid() {
+            const audio = new Audio('https://www.soundjay.com/button/beep-07.wav');
+            audio.play().catch(e => console.log("Error geluid kon niet afspelen:", e));
+        }
 
-        console.log("🎯 DE JUISTE VIDEO IS GELADEN: hDcrSIXzQuY 🎯");
-        console.log("📹 https://www.youtube.com/watch?v=hDcrSIXzQuY 📹");
+        // Test of video bestand bestaat
+        function testVideoBestand() {
+            const video = document.createElement('video');
+            video.src = 'video.mp4';
+            video.oncanplay = function() {
+                console.log("✅ video.mp4 bestaat en kan afgespeeld worden");
+            };
+            video.onerror = function() {
+                console.log("❌ video.mp4 niet gevonden of kan niet afgespeeld worden");
+            };
+        }
+
+        // Test video wanneer pagina laadt
+        window.onload = testVideoBestand;
+
+        console.log("🎯 LOKALE VIDEO: video.mp4 🎯");
+        console.log("📁 Zorg dat video.mp4 in dezelfde map staat als dit HTML bestand 📁");
     </script>
 </body>
 </html>
