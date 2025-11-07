@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>De Domste HTML Ooit</title>
+    <style>
+        body {
+            font-family: Comic Sans MS, cursive;
+            background-color: #ff00ff;
+            color: #00ffff;
+            text-align: center;
+        }
+        .blink {
+            animation: blink 0.5s infinite;
+        }
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .spin {
+            animation: spin 2s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .marquee {
+            white-space: nowrap;
+            overflow: hidden;
+            animation: marquee 10s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+    </style>
+</head>
+<body>
+    <h1 class="blink">WELKOM BIJ DE DOMMIGSTE HTML PAGINA OOIT!</h1>
+    
+    <div class="marquee">
+        <h2>Deze tekst loopt voor altijd door... en door... en door... en door...</h2>
+    </div>
+    
+    <div class="spin">
+        <p>Ik draai rondjes want waarom ook niet?</p>
+    </div>
+    
+    <marquee behavior="alternate" direction="up" height="200">
+        <marquee behavior="alternate" direction="right">
+            <h3>Dubbele marquee! Wat een geniale domheid!</h3>
+        </marquee>
+    </marquee>
+    
+    <table border="10" cellpadding="20" cellspacing="5" bgcolor="yellow">
+        <tr>
+            <td>Deze</td>
+            <td>Tabel</td>
+            <td>Is</td>
+            <td>Super</td>
+            <td>Nutteloos</td>
+        </tr>
+        <tr>
+            <td colspan="5">En deze cel neemt de hele rij in beslag!</td>
+        </tr>
+    </table>
+    
+    <br><br>
+    
+    <font size="7" color="red">
+        <blink>OUDE HTML TAG DIE NIET MEER WERKT MAAR TOCH GEBRUIK IK HEM!</blink>
+    </font>
+    
+    <br><br>
+    
+    <iframe width="300" height="200" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+    <p><small>Dit is een verplicht onderdeel van elke domme website</small></p>
+    
+    <br>
+    
+    <div style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22500%22 height=%22500%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%2300ff00%22/><text x=%2250%25%22 y=%2250%25%22 font-size=%2230%22 text-anchor=%22middle%22 fill=%22%23000000%22>DOM PATROON</text></svg>'); height: 500px;">
+        <h2>Een achtergrond die nog lelijker is dan de voorgrond!</h2>
+    </div>
+    
+    <br>
+    
+    <center>
+        <font face="Arial" size="5">
+            <b><i><u>Alles is gecentreerd want dat ziet er zo professioneel uit!</u></i></b>
+        </font>
+    </center>
+    
+    <br><br>
+    
+    <div style="border: 20px dotted orange; padding: 30px;">
+        <h2>Gestippelde rand? Waarom niet!</h2>
+        <p>Ik heb echt geen idee wat ik hier neer moet zetten dus ik typ maar wat.</p>
+    </div>
+    
+    <br>
+    
+    <audio controls autoplay loop>
+        <source src="https://www.soundjay.com/button/beep-07.wav" type="audio/wav">
+    </audio>
+    <p>Geluid dat automatisch afspeelt! Hoe irritant!</p>
+    
+    <br><br>
+    
+    <h2>Een lijst met compleet willekeurige dingen:</h2>
+    <ul>
+        <li>Een groene koe</li>
+        <li>Een vierkante cirkel</li>
+        <li>Droog water</li>
+        <li>Een luide stilte</li>
+        <li>Een snelle slak</li>
+    </ul>
+    
+    <br>
+    
+    <div style="transform: skewX(20deg); background-color: purple; padding: 20px;">
+        <h2>Scheve tekst omdat het kan!</h2>
+    </div>
+    
+    <br><br>
+    
+    <footer>
+        <p class="blink">Gemaakt met 0% hersencellen en 100% domheid</p>
+        <p>© 2023 - De Domste Website Aller Tijden</p>
+        <p>Bezoekers teller: <counter>999999</counter> (nep natuurlijk)</p>
+    </footer>
+</body>
+</html>
