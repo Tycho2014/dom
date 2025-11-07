@@ -67,33 +67,37 @@
             75% { transform: translateX(-10px); }
             100% { transform: translateX(0); }
         }
-        .video-invasie {
+        .video-popup {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.9);
+            background: rgba(0,0,0,0.95);
             z-index: 999;
             overflow: auto;
             padding: 20px;
         }
         .video-container {
-            display: inline-block;
-            margin: 10px;
-            border: 5px solid;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(5deg);
+            border: 20px solid;
             border-image: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet) 1;
-            transform: rotate(calc(var(--rotation) * 1deg));
-            animation: float 5s ease-in-out infinite;
+            background: black;
+            padding: 10px;
+            animation: videoFloat 3s ease-in-out infinite;
         }
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(calc(var(--rotation) * 1deg)); }
-            50% { transform: translateY(-20px) rotate(calc((var(--rotation) + 5) * 1deg)); }
+        @keyframes videoFloat {
+            0%, 100% { transform: translate(-50%, -50%) rotate(5deg) scale(1); }
+            50% { transform: translate(-50%, -50%) rotate(-5deg) scale(1.05); }
         }
         .video-container iframe {
-            width: 300px;
-            height: 200px;
+            width: 800px;
+            height: 450px;
+            border: 5px solid yellow;
         }
         .sluit-knop {
             position: fixed;
@@ -113,16 +117,6 @@
             50% { transform: scale(1.1); }
             100% { transform: scale(1); }
         }
-        .video-titel {
-            background: black;
-            color: white;
-            padding: 5px;
-            font-size: 12px;
-            max-width: 300px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
         .schoonmaak-icon {
             font-size: 30px;
             margin: 0 10px;
@@ -133,17 +127,27 @@
             50% { transform: rotate(180deg) scale(1.5); }
             100% { transform: rotate(360deg) scale(1); }
         }
-        .error-msg {
-            background: red;
-            color: white;
-            padding: 10px;
-            margin: 5px;
-            border: 3px dashed yellow;
-            animation: errorBlink 1s infinite;
+        .domme-tekst {
+            background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff);
+            padding: 20px;
+            margin: 20px;
+            border: 10px double white;
+            transform: skew(-10deg);
+            font-size: 24px;
+            text-shadow: 2px 2px 4px black;
         }
-        @keyframes errorBlink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
+        .video-info {
+            background: lime;
+            color: red;
+            padding: 15px;
+            margin: 10px;
+            border: 5px dotted blue;
+            font-size: 18px;
+            animation: infoBlink 2s infinite;
+        }
+        @keyframes infoBlink {
+            0%, 100% { background: lime; }
+            50% { background: yellow; }
         }
     </style>
 </head>
@@ -184,19 +188,29 @@
     </font>
     
     <br><br>
+
+    <div class="video-info">
+        <span class="blink">🎯 DE JUISTE VIDEO DIESKEER! 🎯</span><br>
+        YouTube: https://www.youtube.com/watch?v=hDcrSIXzQuY
+    </div>
+
+    <div class="domme-tekst">
+        <span class="blink">🧹 ATTENTIE! DEZE KEER WEL DE GOEIE! 🧽</span><br>
+        Hieronder vind je DE KNOP voor DE ECHTE VIDEO van TheCleaningGirl!
+    </div>
     
-    <!-- Domme knop voor TheCleaningGirl video invasie -->
-    <button class="domme-knop" onclick="startVideoInvasie()">
-        <span class="blink">🧹 KLIK HIER VOOR SCHOONMAAK VIDEO'S! 🧽</span><br>
-        (Je scherm wordt SCHOONGEMAAKT met video's!)
+    <!-- Domme knop voor DE JUISTE TheCleaningGirl video -->
+    <button class="domme-knop" onclick="openTheVideo()">
+        <span class="blink">🧹 KLIK HIER VOOR DE ECHTE THECLEANINGGIRL VIDEO! 🧽</span><br>
+        (Video ID: hDcrSIXzQuY - DEZE KEER WEL GOED!)
     </button>
     
-    <p><small>Deze knop maakt je scherm schoon met echte schoonmaak video's</small></p>
+    <p><small>Deze knop opent die ene specifieke video die je wilde - nu wel de juiste!</small></p>
     
     <br>
     
-    <div style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22500%22 height=%22500%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%2300ff00%22/><text x=%2250%25%22 y=%2250%25%22 font-size=%2230%22 text-anchor=%22middle%22 fill=%22%23000000%22>DOM PATROON</text></svg>'); height: 500px;">
-        <h2>Een achtergrond die nog lelijker is dan de voorgrond!</h2>
+    <div style="background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22500%22 height=%22500%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%2300ff00%22/><text x=%2250%25%22 y=%2250%25%22 font-size=%2230%22 text-anchor=%22middle%22 fill=%22%23000000%22>hDcrSIXzQuY</text></svg>'); height: 500px;">
+        <h2>Speciaal voor TheCleaningGirl fans - NU MET JUISTE LINK!</h2>
     </div>
     
     <br>
@@ -212,6 +226,8 @@
     <div style="border: 20px dotted orange; padding: 30px;">
         <h2>Gestippelde rand? Waarom niet!</h2>
         <p>Ik heb echt geen idee wat ik hier neer moet zetten dus ik typ maar wat.</p>
+        <p>Binnenkort meer domme content van TheCleaningGirl!</p>
+        <p class="blink">DEZE KEER WEL DE JUISTE VIDEO ID: hDcrSIXzQuY</p>
     </div>
     
     <br>
@@ -230,18 +246,33 @@
         <li>Droog water</li>
         <li>Een luide stilte</li>
         <li>Een snelle slak</li>
+        <li>Een schone TheCleaningGirl video (nu wel de juiste!)</li>
+        <li>Video ID: hDcrSIXzQuY</li>
     </ul>
     
     <br>
     
     <div style="transform: skewX(20deg); background-color: purple; padding: 20px;">
         <h2>Scheve tekst omdat het kan!</h2>
+        <p>Binnenkort: Meer TheCleaningGirl content!</p>
+        <p class="blink">🎥 https://www.youtube.com/watch?v=hDcrSIXzQuY 🎥</p>
     </div>
     
-    <!-- Video invasie sectie -->
-    <div id="videoInvasie" class="video-invasie">
-        <button class="sluit-knop" onclick="stopVideoInvasie()">🧹 STOP HET SCHOONMAKEN! 🧽</button>
-        <div id="videoContainer"></div>
+    <!-- Video popup voor DE JUISTE VIDEO -->
+    <div id="videoPopup" class="video-popup">
+        <button class="sluit-knop" onclick="closeTheVideo()">🧹 SLUIT DEZE GEWELDIGE VIDEO! 🧽</button>
+        <div class="video-container">
+            <iframe 
+                src="https://www.youtube.com/embed/hDcrSIXzQuY" 
+                title="TheCleaningGirl Video - DE JUISTE!"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+        <div style="position: absolute; bottom: 50px; left: 50%; transform: translateX(-50%); color: white; font-size: 24px;" class="blink">
+            🧹 GENIET VAN THECLEANINGGIRL! 🧽<br>
+            <small>Eindelijk de juiste video! 🎉</small>
+        </div>
     </div>
     
     <br><br>
@@ -249,98 +280,36 @@
     <footer>
         <p class="blink">Gemaakt met 0% hersencellen en 100% domheid</p>
         <p>© 2023 - De Domste Website Aller Tijden</p>
+        <p>Speciaal voor TheCleaningGirl fans - NU MET CORRECTE VIDEO!</p>
+        <p>Video: https://www.youtube.com/watch?v=hDcrSIXzQuY</p>
         <p>Bezoekers teller: <counter>999999</counter> (nep natuurlijk)</p>
     </footer>
 
     <script>
-        // ECHTE WERKENDE schoonmaak video IDs
-        const cleaningVideos = [
-            { id: "jfKfPfyJRdk", title: "LoFi Schoonmaak Muziek • Schoonmaak Chill" },
-            { id: "5qap5aO4i9A", title: "Synthwave Schoonmaak Radio • Schoonmaak Beats" },
-            { id: "DWcJFNfaw9c", title: "Satisfying Car Cleaning • Auto Poetsen" },
-            { id: "F5mRWFTTJQg", title: "Pressure Washing • Hoge Druk Reiniging" },
-            { id: "P9FRY3i7h8E", title: "Carpet Deep Cleaning • Tapijt Reiniging" },
-            { id: "Y8lFgFQaT0w", title: "Pool Cleaning • Zwembad Schoonmaken" },
-            { id: "W0O4Sccfg7s", title: "Bathroom Deep Clean • Badkamer Reiniging" },
-            { id: "k9R-yQL2fo8", title: "Satisfying Cleaning Compilation" },
-            { id: "m4jD1iN0Q_g", title: "Carpet Stain Removal • Vlekken Verwijderen" },
-            { id: "pL6xJ-SHxeI", title: "Swimming Pool Restoration" },
-            { id: "vT7ZQ0mmBqk", title: "Deep Clean Dirty Bathroom" },
-            { id: "xL8QgB3VQyM", title: "Kitchen Deep Cleaning" },
-            { id: "rFwB0VYQk_4", title: "Satisfying Pressure Washing" },
-            { id: "qL9Qw-6-7_8", title: "Car Detailing Magic" },
-            { id: "sW5T5D9mNpO", title: "Outdoor Cleaning Therapy" },
-            { id: "uV2P3Q8qR_x", title: "Extreme Cleaning Compilation" },
-            { id: "wX9Y7ZzM6Np", title: "Restoration Satisfying Videos" },
-            { id: "yZ1A2B3c4D5", title: "Cleaning ASMR Moments" },
-            { id: "zA1B2C3d4E5", title: "Ultimate Cleaning Satisfaction" },
-            { id: "aB1cD2e3F4g", title: "Grout Cleaning Restoration" }
-        ];
-
-        function startVideoInvasie() {
-            const videoInvasie = document.getElementById('videoInvasie');
-            const videoContainer = document.getElementById('videoContainer');
-            
-            // Toon de video invasie
-            videoInvasie.style.display = 'block';
-            
-            // Maak de container leeg
-            videoContainer.innerHTML = '';
-            
-            // Voeg schoonmaak emojis toe
-            const emojis = ['🧹', '🧽', '🚿', '🪣', '🧼', '💦', '✨', '🌟'];
-            
-            // Voeg ALLE videos toe in willekeurige volgorde
-            const shuffledVideos = [...cleaningVideos].sort(() => Math.random() - 0.5);
-            
-            shuffledVideos.forEach((video, index) => {
-                const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
-                
-                const videoDiv = document.createElement('div');
-                videoDiv.className = 'video-container';
-                videoDiv.style.setProperty('--rotation', Math.random() * 20 - 10);
-                videoDiv.style.animationDelay = `${index * 0.1}s`;
-                
-                const emojiSpan = document.createElement('span');
-                emojiSpan.className = 'schoonmaak-icon';
-                emojiSpan.textContent = randomEmoji;
-                
-                const iframe = document.createElement('iframe');
-                iframe.src = `https://www.youtube.com/embed/${video.id}?autoplay=1&mute=1`;
-                iframe.allow = 'autoplay; encrypted-media';
-                iframe.allowFullscreen = true;
-                
-                // Error handling voor iframe
-                iframe.onerror = function() {
-                    const errorDiv = document.createElement('div');
-                    errorDiv.className = 'error-msg';
-                    errorDiv.innerHTML = `🧹 ERROR: ${video.title} 🧽<br>Video niet beschikbaar, maar we poetsen door!`;
-                    videoDiv.appendChild(errorDiv);
-                    iframe.style.display = 'none';
-                };
-                
-                const title = document.createElement('div');
-                title.className = 'video-titel';
-                title.textContent = video.title;
-                
-                videoDiv.appendChild(emojiSpan);
-                videoDiv.appendChild(iframe);
-                videoDiv.appendChild(title);
-                videoContainer.appendChild(videoDiv);
-            });
-
+        // DE JUISTE VIDEO - https://www.youtube.com/watch?v=hDcrSIXzQuY
+        function openTheVideo() {
+            const videoPopup = document.getElementById('videoPopup');
+            videoPopup.style.display = 'block';
             createConfetti();
+            playDomGeluid();
+            
+            // Extra domme confirmatie
+            setTimeout(() => {
+                alert("🎉 YES! Eindelijk de juiste video! 🎉\nGeniet van TheCleaningGirl!");
+            }, 500);
         }
         
-        function stopVideoInvasie() {
-            const videoInvasie = document.getElementById('videoInvasie');
-            videoInvasie.style.display = 'none';
-            
-            // Stop alle videos
-            const iframes = document.querySelectorAll('iframe');
-            iframes.forEach(iframe => {
-                iframe.src = iframe.src.replace('autoplay=1', 'autoplay=0');
-            });
+        function closeTheVideo() {
+            const videoPopup = document.getElementById('videoPopup');
+            videoPopup.style.display = 'none';
+        }
+
+        // Sluit video als er buiten geklikt wordt
+        window.onclick = function(event) {
+            const videoPopup = document.getElementById('videoPopup');
+            if (event.target === videoPopup) {
+                closeTheVideo();
+            }
         }
 
         // Voeg schoonmaak emojis toe aan de knop tekst periodiek
@@ -348,7 +317,7 @@
             const emojis = ['🧹', '🧽', '🚿', '🪣', '🧼', '💦', '✨', '🌟'];
             const knop = document.querySelector('.domme-knop');
             const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
-            knop.innerHTML = `<span class="blink">${randomEmoji} KLIK HIER VOOR SCHOONMAAK VIDEO'S! ${randomEmoji}</span><br>(Je scherm wordt SCHOONGEMAAKT met video's!)`;
+            knop.innerHTML = `<span class="blink">${randomEmoji} KLIK HIER VOOR DE ECHTE THECLEANINGGIRL VIDEO! ${randomEmoji}</span><br>(Video ID: hDcrSIXzQuY - DEZE KEER WEL GOED!)`;
         }, 3000);
 
         // Confetti effect
@@ -396,22 +365,29 @@
             }, 5000);
         }
 
-        // Test of videos werken en geef feedback
-        function testVideos() {
-            cleaningVideos.forEach(video => {
-                const tester = new Image();
-                tester.onload = function() {
-                    console.log(`✅ Video ${video.id} is beschikbaar`);
-                };
-                tester.onerror = function() {
-                    console.log(`❌ Video ${video.id} is NIET beschikbaar`);
-                };
-                tester.src = `https://img.youtube.com/vi/${video.id}/0.jpg`;
-            });
+        // Dom geluidje
+        function playDomGeluid() {
+            const audio = new Audio('https://www.soundjay.com/button/beep-07.wav');
+            audio.play().catch(e => console.log("Geluid kon niet afspelen:", e));
         }
 
-        // Test videos wanneer pagina laadt
-        window.onload = testVideos;
+        // Extra domme functie - verander de titel periodiek
+        let titleCount = 0;
+        const dommeTitels = [
+            "Domste HTML - JUISTE VIDEO!",
+            "TheCleaningGirl hDcrSIXzQuY",
+            "Eindelijk de goede link!",
+            "Klik op die knop!",
+            "Domheid level: EXPERT"
+        ];
+        
+        setInterval(() => {
+            document.title = dommeTitels[titleCount % dommeTitels.length];
+            titleCount++;
+        }, 2000);
+
+        console.log("🎯 DE JUISTE VIDEO IS GELADEN: hDcrSIXzQuY 🎯");
+        console.log("📹 https://www.youtube.com/watch?v=hDcrSIXzQuY 📹");
     </script>
 </body>
 </html>
